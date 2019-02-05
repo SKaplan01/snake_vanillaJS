@@ -16,3 +16,7 @@ td {
   width: 30px;
   border: solid 0.03em black;
 }
+
+.snake {
+  background-color: black;
+}

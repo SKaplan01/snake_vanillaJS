@@ -8,6 +8,8 @@ class Board {
     this.makeboard();
     this.makeHtmlBoard();
     this.snake = new Snake();
+    this.insertSnake();
+    this.moveSnake();
   }
 
   makeboard() {
@@ -27,12 +29,39 @@ class Board {
       let row = document.createElement('tr');
       for (let x = 0; x < this.width; x++) {
         let cell = document.createElement('td');
-        cell.setAttribute('id', `${x}-${y}`);
+        cell.setAttribute('id', `${y}-${x}`);
         row.append(cell);
       }
       board.append(row);
     }
   }
+
+  insertSnake() {
+    let curr = this.snake.coords.head;
+    while (curr) {
+      let x = curr.val[0];
+      let y = curr.val[2];
+      this.board[y][x] = 1;
+      let cell = document.getElementById(curr.val);
+      cell.setAttribute('class', 'snake');
+      curr = curr.next;
+    }
+  }
+
+  insertApple() {}
+
+  moveSnake() {
+    let timerId = setInterval(() => {
+      let tail = this.snake.coords.tail;
+      let tailCell = document.getElementById(tail.val);
+      tailCell.classList.remove('snake');
+      this.snake.move();
+      let newHead = document.getElementById(this.snake.coords.head.val);
+      newHead.setAttribute('class', 'snake');
+    }, this.snake.speed);
+  }
+
+  checkMove() {}
 }
 
 class Snake {

@@ -1,0 +1,18 @@
+#game {
+  text-align: center;
+}
+
+#board {
+  margin: 0 auto;
+  margin-top: 1em;
+}
+
+table {
+  border-spacing: 0px;
+}
+
+td {
+  height: 30px;
+  width: 30px;
+  border: solid 0.03em black;
+}

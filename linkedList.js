@@ -81,11 +81,6 @@ class LinkedList {
   }
 }
 
-module.exports = {
-  LinkedList,
-  Node
-};
-
 // let l = new LinkedList();
 // l.append(5);
 // l.append(4);

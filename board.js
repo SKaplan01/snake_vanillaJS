@@ -12,6 +12,7 @@ class Board {
     this.timerId = this.moveSnake();
   }
 
+  //TODO: do I need this?
   makeboard() {
     let row = [];
     for (let i = 0; i < this.height; i++) {
